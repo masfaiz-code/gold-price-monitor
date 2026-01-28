@@ -57,26 +57,24 @@ async function main() {
       });
     }
 
-    // Step 4: Kirim webhook jika ada perubahan
+    // Step 4: Kirim webhook (TEMP: selalu kirim untuk testing)
     console.log('\n📤 Step 4: Mengirim webhook...');
     
-    if (comparison.hasChanged) {
-      const payload = formatPayload(newPriceData, comparison);
-      
-      if (DRY_RUN) {
-        console.log('🔍 [DRY RUN] Payload yang akan dikirim:');
-        console.log(JSON.stringify(payload, null, 2));
-      } else {
-        const webhookResult = await sendToWebhook(N8N_WEBHOOK_URL, payload);
-        
-        if (webhookResult.success) {
-          console.log('✅ Webhook berhasil dikirim!');
-        } else {
-          console.error('❌ Webhook gagal:', webhookResult.error || webhookResult.reason);
-        }
-      }
+    // TEMP: Selalu kirim webhook untuk testing
+    const payload = formatPayload(newPriceData, comparison);
+    
+    if (DRY_RUN) {
+      console.log('🔍 [DRY RUN] Payload yang akan dikirim:');
+      console.log(JSON.stringify(payload, null, 2));
     } else {
-      console.log('⏭️  Skip webhook - tidak ada perubahan harga');
+      console.log('📨 Mengirim data harga terbaru...');
+      const webhookResult = await sendToWebhook(N8N_WEBHOOK_URL, payload);
+      
+      if (webhookResult.success) {
+        console.log('✅ Webhook berhasil dikirim!');
+      } else {
+        console.error('❌ Webhook gagal:', webhookResult.error || webhookResult.reason);
+      }
     }
 
     // Step 5: Simpan harga terbaru
