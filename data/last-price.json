@@ -1,7 +1,7 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-01-28T15:26:52.645Z",
+  "scrapedAt": "2026-01-28T15:30:51.047Z",
   "prices": [
     {
       "source": "schema",
@@ -27,14 +27,14 @@
     {
       "source": "text-scan",
       "type": "Harga #2",
-      "price": 3458738,
-      "priceFormatted": "Rp 3.458.738"
+      "price": 3612127,
+      "priceFormatted": "Rp 3.612.127"
     },
     {
       "source": "text-scan",
       "type": "Harga #3",
-      "price": 2834151,
-      "priceFormatted": "Rp 2.834.151"
+      "price": 2838413,
+      "priceFormatted": "Rp 2.838.413"
     },
     {
       "source": "text-scan",
@@ -45,8 +45,8 @@
     {
       "source": "text-scan",
       "type": "Harga #5",
-      "price": 2953702,
-      "priceFormatted": "Rp 2.953.702"
+      "price": 2953101,
+      "priceFormatted": "Rp 2.953.101"
     }
   ],
   "antam": [
@@ -81,19 +81,19 @@
       "weight": 1,
       "weightUnit": "gram",
       "type": "Harga #2",
-      "buyPrice": 3458738,
-      "sellPrice": 3458738,
-      "buyPriceFormatted": "Rp 3.458.738",
-      "sellPriceFormatted": "Rp 3.458.738"
+      "buyPrice": 3612127,
+      "sellPrice": 3612127,
+      "buyPriceFormatted": "Rp 3.612.127",
+      "sellPriceFormatted": "Rp 3.612.127"
     },
     {
       "weight": 1,
       "weightUnit": "gram",
       "type": "Harga #3",
-      "buyPrice": 2834151,
-      "sellPrice": 2834151,
-      "buyPriceFormatted": "Rp 2.834.151",
-      "sellPriceFormatted": "Rp 2.834.151"
+      "buyPrice": 2838413,
+      "sellPrice": 2838413,
+      "buyPriceFormatted": "Rp 2.838.413",
+      "sellPriceFormatted": "Rp 2.838.413"
     },
     {
       "weight": 1,
@@ -108,10 +108,10 @@
       "weight": 1,
       "weightUnit": "gram",
       "type": "Harga #5",
-      "buyPrice": 2953702,
-      "sellPrice": 2953702,
-      "buyPriceFormatted": "Rp 2.953.702",
-      "sellPriceFormatted": "Rp 2.953.702"
+      "buyPrice": 2953101,
+      "sellPrice": 2953101,
+      "buyPriceFormatted": "Rp 2.953.101",
+      "sellPriceFormatted": "Rp 2.953.101"
     }
   ]
 }
