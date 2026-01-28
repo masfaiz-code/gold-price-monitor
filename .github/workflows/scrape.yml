@@ -1,0 +1,42 @@
+name: Scrape Gold Price
+
+on:
+  # Jalankan setiap 1 jam
+  schedule:
+    - cron: '0 * * * *'  # Setiap jam, menit ke-0
+  
+  # Bisa juga trigger manual
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run scraper
+        env:
+          N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
+          TZ: Asia/Jakarta
+        run: npm start
+
+      - name: Commit updated price data
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/last-price.json
+          git diff --staged --quiet || git commit -m "📊 Update harga emas - $(date +'%Y-%m-%d %H:%M WIB')"
+          git push

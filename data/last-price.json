@@ -1,0 +1,117 @@
+{
+  "source": "harga-emas.org",
+  "url": "https://harga-emas.org",
+  "scrapedAt": "2026-01-28T15:07:20.039Z",
+  "prices": [
+    {
+      "source": "schema",
+      "type": "Harga Emas (Schema)",
+      "price": 3002948,
+      "priceFormatted": "Rp 3.002.948",
+      "currency": "IDR"
+    },
+    {
+      "source": "text",
+      "type": "Antam Buyback",
+      "price": 2837700,
+      "sellPrice": 2837700,
+      "priceFormatted": "Rp 2.837.700",
+      "sellPriceFormatted": "Rp 2.837.700"
+    },
+    {
+      "source": "text-scan",
+      "type": "Harga #1",
+      "price": 1675291,
+      "priceFormatted": "Rp 1.675.291"
+    },
+    {
+      "source": "text-scan",
+      "type": "Harga #2",
+      "price": 4161494,
+      "priceFormatted": "Rp 4.161.494"
+    },
+    {
+      "source": "text-scan",
+      "type": "Harga #3",
+      "price": 2847682,
+      "priceFormatted": "Rp 2.847.682"
+    },
+    {
+      "source": "text-scan",
+      "type": "Harga #4",
+      "price": 2837700,
+      "priceFormatted": "Rp 2.837.700"
+    },
+    {
+      "source": "text-scan",
+      "type": "Harga #5",
+      "price": 2950096,
+      "priceFormatted": "Rp 2.950.096"
+    }
+  ],
+  "antam": [
+    {
+      "weight": 1,
+      "weightUnit": "gram",
+      "type": "Harga Emas (Schema)",
+      "buyPrice": 3002948,
+      "sellPrice": 3002948,
+      "buyPriceFormatted": "Rp 3.002.948",
+      "sellPriceFormatted": "Rp 3.002.948"
+    },
+    {
+      "weight": 1,
+      "weightUnit": "gram",
+      "type": "Antam Buyback",
+      "buyPrice": 2837700,
+      "sellPrice": 2837700,
+      "buyPriceFormatted": "Rp 2.837.700",
+      "sellPriceFormatted": "Rp 2.837.700"
+    },
+    {
+      "weight": 1,
+      "weightUnit": "gram",
+      "type": "Harga #1",
+      "buyPrice": 1675291,
+      "sellPrice": 1675291,
+      "buyPriceFormatted": "Rp 1.675.291",
+      "sellPriceFormatted": "Rp 1.675.291"
+    },
+    {
+      "weight": 1,
+      "weightUnit": "gram",
+      "type": "Harga #2",
+      "buyPrice": 4161494,
+      "sellPrice": 4161494,
+      "buyPriceFormatted": "Rp 4.161.494",
+      "sellPriceFormatted": "Rp 4.161.494"
+    },
+    {
+      "weight": 1,
+      "weightUnit": "gram",
+      "type": "Harga #3",
+      "buyPrice": 2847682,
+      "sellPrice": 2847682,
+      "buyPriceFormatted": "Rp 2.847.682",
+      "sellPriceFormatted": "Rp 2.847.682"
+    },
+    {
+      "weight": 1,
+      "weightUnit": "gram",
+      "type": "Harga #4",
+      "buyPrice": 2837700,
+      "sellPrice": 2837700,
+      "buyPriceFormatted": "Rp 2.837.700",
+      "sellPriceFormatted": "Rp 2.837.700"
+    },
+    {
+      "weight": 1,
+      "weightUnit": "gram",
+      "type": "Harga #5",
+      "buyPrice": 2950096,
+      "sellPrice": 2950096,
+      "buyPriceFormatted": "Rp 2.950.096",
+      "sellPriceFormatted": "Rp 2.950.096"
+    }
+  ]
+}
