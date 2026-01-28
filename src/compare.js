@@ -56,40 +56,19 @@ function comparePrices(newPrice, oldPrice) {
   const newAntam = newPrice.antam || [];
   const oldAntam = oldPrice.antam || [];
 
-  // Bandingkan setiap item
+  // Bandingkan setiap item berdasarkan weight
   newAntam.forEach((newItem) => {
-    const oldItem = oldAntam.find(o => 
-      o.weight === newItem.weight || 
-      o.type === newItem.type
-    );
+    const oldItem = oldAntam.find(o => o.weight === newItem.weight);
 
     if (!oldItem) {
       changes.push({
         type: 'NEW',
         item: newItem.type,
         weight: newItem.weight,
-        newBuyPrice: newItem.buyPrice,
-        newSellPrice: newItem.sellPrice
+        newPrice: newItem.sellPrice,
+        newPriceFormatted: newItem.sellPriceFormatted
       });
     } else {
-      // Cek perubahan harga beli
-      if (oldItem.buyPrice !== newItem.buyPrice) {
-        const diff = newItem.buyPrice - oldItem.buyPrice;
-        const diffPercent = ((diff / oldItem.buyPrice) * 100).toFixed(2);
-        
-        changes.push({
-          type: 'PRICE_CHANGE',
-          priceType: 'BUY',
-          item: newItem.type,
-          weight: newItem.weight,
-          oldPrice: oldItem.buyPrice,
-          newPrice: newItem.buyPrice,
-          difference: diff,
-          differencePercent: parseFloat(diffPercent),
-          direction: diff > 0 ? 'UP' : 'DOWN'
-        });
-      }
-
       // Cek perubahan harga jual
       if (oldItem.sellPrice !== newItem.sellPrice) {
         const diff = newItem.sellPrice - oldItem.sellPrice;
@@ -97,11 +76,12 @@ function comparePrices(newPrice, oldPrice) {
         
         changes.push({
           type: 'PRICE_CHANGE',
-          priceType: 'SELL',
           item: newItem.type,
           weight: newItem.weight,
           oldPrice: oldItem.sellPrice,
           newPrice: newItem.sellPrice,
+          oldPriceFormatted: oldItem.sellPriceFormatted,
+          newPriceFormatted: newItem.sellPriceFormatted,
           difference: diff,
           differencePercent: parseFloat(diffPercent),
           direction: diff > 0 ? 'UP' : 'DOWN'
@@ -109,6 +89,26 @@ function comparePrices(newPrice, oldPrice) {
       }
     }
   });
+
+  // Cek perubahan buyback price
+  if (newPrice.buybackPrice && oldPrice.buybackPrice) {
+    if (newPrice.buybackPrice.price !== oldPrice.buybackPrice.price) {
+      const diff = newPrice.buybackPrice.price - oldPrice.buybackPrice.price;
+      const diffPercent = ((diff / oldPrice.buybackPrice.price) * 100).toFixed(2);
+      
+      changes.push({
+        type: 'BUYBACK_CHANGE',
+        item: 'Harga Buyback',
+        oldPrice: oldPrice.buybackPrice.price,
+        newPrice: newPrice.buybackPrice.price,
+        oldPriceFormatted: oldPrice.buybackPrice.priceFormatted,
+        newPriceFormatted: newPrice.buybackPrice.priceFormatted,
+        difference: diff,
+        differencePercent: parseFloat(diffPercent),
+        direction: diff > 0 ? 'UP' : 'DOWN'
+      });
+    }
+  }
 
   const hasChanged = changes.length > 0;
 

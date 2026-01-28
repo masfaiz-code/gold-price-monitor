@@ -26,69 +26,25 @@ async function scrapeGoldPrice() {
     const $ = cheerio.load(response.data);
     const html = response.data;
 
-    // Method 1: Extract from JSON-LD Schema
-    let schemaPrice = null;
-    $('script[type="application/ld+json"]').each((i, el) => {
-      try {
-        const json = JSON.parse($(el).html());
-        if (json['@type'] === 'Product' && json.offers?.price) {
-          schemaPrice = {
-            type: 'Emas (Schema)',
-            price: json.offers.price,
-            currency: json.offers.priceCurrency || 'IDR',
-            description: json.description
-          };
-        }
-      } catch (e) {
-        // Skip invalid JSON
-      }
-    });
+    // Extract harga Antam per gram dari tabel
+    const antamPrices = extractAntamTablePrices(html);
+    
+    // Extract harga buyback
+    const buybackPrice = extractBuybackPrice(html);
 
-    // Method 2: Extract from Next.js embedded data
-    const nextDataPrices = extractNextJsData(html);
-
-    // Method 3: Extract from visible text patterns
-    const textPrices = extractFromText($);
-
-    // Combine all extracted prices
-    const allPrices = [];
-
-    if (schemaPrice) {
-      allPrices.push({
-        source: 'schema',
-        type: 'Harga Emas (Schema)',
-        price: schemaPrice.price,
-        priceFormatted: `Rp ${schemaPrice.price.toLocaleString('id-ID')}`,
-        currency: schemaPrice.currency
-      });
-    }
-
-    if (nextDataPrices.length > 0) {
-      allPrices.push(...nextDataPrices);
-    }
-
-    if (textPrices.length > 0) {
-      allPrices.push(...textPrices);
-    }
+    // Extract update time
+    const updateTime = extractUpdateTime(html);
 
     const result = {
       source: 'harga-emas.org',
       url: HARGA_EMAS_URL,
       scrapedAt: new Date().toISOString(),
-      prices: allPrices,
-      // Legacy format for compatibility
-      antam: allPrices.map(p => ({
-        weight: p.weight || 1,
-        weightUnit: 'gram',
-        type: p.type,
-        buyPrice: p.buyPrice || p.price,
-        sellPrice: p.sellPrice || p.price,
-        buyPriceFormatted: p.buyPriceFormatted || p.priceFormatted,
-        sellPriceFormatted: p.sellPriceFormatted || p.priceFormatted
-      }))
+      updateTime: updateTime,
+      buybackPrice: buybackPrice,
+      antam: antamPrices
     };
 
-    console.log(`[${new Date().toISOString()}] Scraping selesai. Ditemukan ${allPrices.length} data harga.`);
+    console.log(`[${new Date().toISOString()}] Scraping selesai. Ditemukan ${antamPrices.length} data harga Antam.`);
     
     return result;
 
@@ -99,133 +55,154 @@ async function scrapeGoldPrice() {
 }
 
 /**
- * Extract price data from Next.js embedded scripts
- * @param {string} html - Raw HTML content
- * @returns {Array} Array of price objects
+ * Extract harga Antam dari tabel per gram
+ * Mencari pattern: 1000 gram = Rp 2.943.600.000, dll
  */
-function extractNextJsData(html) {
+function extractAntamTablePrices(html) {
   const prices = [];
 
-  try {
-    // Pattern 1: Look for goldPriceHistoryData in script
-    const goldPriceMatch = html.match(/"goldPriceHistoryData":\s*(\{[^}]+(?:\{[^}]*\}[^}]*)*\})/);
-    if (goldPriceMatch) {
-      try {
-        // Clean and parse
-        let jsonStr = goldPriceMatch[1];
-        // Fix escaped quotes
-        jsonStr = jsonStr.replace(/\\"/g, '"').replace(/\\\\/g, '\\');
-        const data = JSON.parse(jsonStr);
-        
-        if (data.current) {
-          prices.push({
-            source: 'nextjs',
-            type: 'Harga Emas Pluang',
-            price: data.current.midPrice,
-            buyPrice: data.current.buy,
-            sellPrice: data.current.sell,
-            priceFormatted: `Rp ${data.current.midPrice?.toLocaleString('id-ID')}`,
-            buyPriceFormatted: `Rp ${data.current.buy?.toLocaleString('id-ID')}`,
-            sellPriceFormatted: `Rp ${data.current.sell?.toLocaleString('id-ID')}`,
-            updatedAt: data.current.updated_at
-          });
-        }
-      } catch (e) {
-        console.log('[Scraper] Could not parse goldPriceHistoryData:', e.message);
+  // Pattern untuk mencari harga per satuan gram
+  // Format: "1000" diikuti dengan harga seperti "2.943.600.000"
+  const weightPatterns = [
+    { weight: 1000, regex: /1000[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 500, regex: /500[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 250, regex: /250[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 100, regex: /100[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 50, regex: /\b50[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 25, regex: /\b25[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 10, regex: /\b10[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 5, regex: /\b5[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 2, regex: /\b2[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 1, regex: /\b1[^0-9]*?([\d.,]+\.000\.000)/i },
+    { weight: 0.5, regex: /0[.,]5[^0-9]*?([\d.,]+\.500)/i },
+  ];
+
+  // Cari semua angka yang terlihat seperti harga emas (format: X.XXX.XXX.XXX atau X.XXX.XXX)
+  // Harga Antam biasanya dalam jutaan sampai miliaran
+  
+  // Pattern lebih spesifik untuk tabel Antam
+  // Mencari: angka gram diikuti harga dalam format Indonesia
+  
+  const tableDataRegex = /(\d+(?:[.,]\d+)?)\s*(?:gram|gr|g)?\s*[^\d]*?([\d]{1,3}(?:\.[\d]{3})+)/gi;
+  
+  let match;
+  const foundPrices = new Map();
+  
+  while ((match = tableDataRegex.exec(html)) !== null) {
+    const weight = parseFloat(match[1].replace(',', '.'));
+    const priceStr = match[2];
+    const price = parseInt(priceStr.replace(/\./g, ''));
+    
+    // Validasi: harga harus masuk akal untuk emas
+    // 1 gram emas ~3 juta, jadi 1000 gram ~3 miliar
+    const pricePerGram = price / weight;
+    
+    if (pricePerGram >= 2000000 && pricePerGram <= 5000000) {
+      // Hanya simpan jika belum ada atau harga lebih tinggi (harga jual)
+      if (!foundPrices.has(weight) || foundPrices.get(weight).price < price) {
+        foundPrices.set(weight, { weight, price });
       }
     }
-
-    // Pattern 2: Look for price patterns like "midPrice":3003845
-    const midPriceMatch = html.match(/"midPrice":(\d+)/);
-    const sellMatch = html.match(/"sell":(\d+)/);
-    const buyMatch = html.match(/"buy":(\d+)/);
-
-    if (midPriceMatch || sellMatch || buyMatch) {
-      const midPrice = midPriceMatch ? parseInt(midPriceMatch[1]) : null;
-      const sell = sellMatch ? parseInt(sellMatch[1]) : null;
-      const buy = buyMatch ? parseInt(buyMatch[1]) : null;
-
-      // Only add if we don't already have this price
-      const existingMid = prices.find(p => p.price === midPrice);
-      if (!existingMid && (midPrice || sell || buy)) {
-        prices.push({
-          source: 'regex',
-          type: 'Harga Emas (Live)',
-          price: midPrice || sell || buy,
-          buyPrice: buy,
-          sellPrice: sell,
-          priceFormatted: `Rp ${(midPrice || sell || buy)?.toLocaleString('id-ID')}`,
-          buyPriceFormatted: buy ? `Rp ${buy.toLocaleString('id-ID')}` : null,
-          sellPriceFormatted: sell ? `Rp ${sell.toLocaleString('id-ID')}` : null
-        });
-      }
-    }
-
-    // Pattern 3: Look for Antam specific prices
-    const antamBuybackMatch = html.match(/Harga pembelian kembali[^R]*Rp([\d.,]+)/i);
-    if (antamBuybackMatch) {
-      const price = parseInt(antamBuybackMatch[1].replace(/[.,]/g, ''));
-      prices.push({
-        source: 'text',
-        type: 'Antam Buyback',
-        price: price,
-        sellPrice: price,
-        priceFormatted: `Rp ${price.toLocaleString('id-ID')}`,
-        sellPriceFormatted: `Rp ${price.toLocaleString('id-ID')}`
-      });
-    }
-
-  } catch (error) {
-    console.log('[Scraper] Error extracting Next.js data:', error.message);
   }
+
+  // Alternatif: cari langsung dari pattern harga yang diketahui
+  const knownWeights = [1000, 500, 250, 100, 50, 25, 10, 5, 2, 1, 0.5];
+  
+  for (const w of knownWeights) {
+    // Cari pattern seperti: 2.943.600.000 (untuk 1000g), 1.471.820.000 (untuk 500g), dll
+    let searchWeight = w === 0.5 ? '0[.,]5' : w.toString();
+    
+    // Pattern: weight diikuti oleh harga (dengan beberapa karakter di antaranya)
+    const regex = new RegExp(searchWeight + '[^\\d]{0,50}?([\\d]{1,3}(?:\\.[\\d]{3}){2,3})', 'g');
+    
+    let priceMatch;
+    while ((priceMatch = regex.exec(html)) !== null) {
+      const priceStr = priceMatch[1];
+      const price = parseInt(priceStr.replace(/\./g, ''));
+      
+      // Validasi harga per gram
+      const pricePerGram = price / w;
+      
+      if (pricePerGram >= 2500000 && pricePerGram <= 4000000) {
+        if (!foundPrices.has(w) || foundPrices.get(w).price < price) {
+          foundPrices.set(w, { weight: w, price });
+        }
+      }
+    }
+  }
+
+  // Convert Map ke Array dan format
+  foundPrices.forEach((data, weight) => {
+    prices.push({
+      weight: weight,
+      weightUnit: 'gram',
+      type: `Antam ${weight}g`,
+      sellPrice: data.price,
+      sellPriceFormatted: `Rp ${data.price.toLocaleString('id-ID')}`,
+      pricePerGram: Math.round(data.price / weight),
+      pricePerGramFormatted: `Rp ${Math.round(data.price / weight).toLocaleString('id-ID')}/gram`
+    });
+  });
+
+  // Sort by weight descending
+  prices.sort((a, b) => b.weight - a.weight);
 
   return prices;
 }
 
 /**
- * Extract prices from visible text in the page
- * @param {CheerioAPI} $ - Cheerio instance
- * @returns {Array} Array of price objects
+ * Extract harga buyback (pembelian kembali)
  */
-function extractFromText($) {
-  const prices = [];
-
-  try {
-    // Look for price patterns in the page
-    const bodyText = $('body').text();
-
-    // Pattern: "Rp X.XXX.XXX" or "Rp X,XXX,XXX"
-    const priceMatches = bodyText.match(/Rp\s*[\d.,]+/g) || [];
+function extractBuybackPrice(html) {
+  // Pattern: "Harga pembelian kembali: RpX.XXX.XXX"
+  const buybackMatch = html.match(/(?:pembelian kembali|buyback)[^R]*Rp\s*([\d.,]+)/i);
+  
+  if (buybackMatch) {
+    const priceStr = buybackMatch[1].replace(/[.,]/g, '');
+    const price = parseInt(priceStr);
     
-    const uniquePrices = new Set();
-    priceMatches.forEach(match => {
-      const numStr = match.replace(/[Rp\s.,]/g, '');
-      const num = parseInt(numStr);
-      // Only consider valid gold prices (roughly 500k - 50M per gram range)
-      if (num >= 500000 && num <= 50000000) {
-        uniquePrices.add(num);
-      }
-    });
-
-    // Add unique prices found
-    let index = 0;
-    uniquePrices.forEach(price => {
-      if (index < 5) { // Limit to top 5 unique prices
-        prices.push({
-          source: 'text-scan',
-          type: `Harga #${index + 1}`,
-          price: price,
-          priceFormatted: `Rp ${price.toLocaleString('id-ID')}`
-        });
-        index++;
-      }
-    });
-
-  } catch (error) {
-    console.log('[Scraper] Error extracting text prices:', error.message);
+    if (price >= 2000000 && price <= 5000000) {
+      return {
+        price: price,
+        priceFormatted: `Rp ${price.toLocaleString('id-ID')}`,
+        type: 'Buyback per gram'
+      };
+    }
   }
 
-  return prices;
+  // Alternatif pattern
+  const altMatch = html.match(/Rp\s*(2\.8[\d]{2}\.[\d]{3})/);
+  if (altMatch) {
+    const price = parseInt(altMatch[1].replace(/\./g, ''));
+    return {
+      price: price,
+      priceFormatted: `Rp ${price.toLocaleString('id-ID')}`,
+      type: 'Buyback per gram'
+    };
+  }
+
+  return null;
+}
+
+/**
+ * Extract waktu update
+ */
+function extractUpdateTime(html) {
+  // Pattern: "Update harga LM Antam: 28 Januari 2026 pukul 12.30"
+  const timeMatch = html.match(/Update[^:]*:\s*(\d{1,2}\s+\w+\s+\d{4}[^<]*pukul\s*[\d.:]+)/i);
+  
+  if (timeMatch) {
+    return timeMatch[1].trim();
+  }
+
+  // Alternatif pattern
+  const altMatch = html.match(/(\d{1,2}\s+(?:Januari|Februari|Maret|April|Mei|Juni|Juli|Agustus|September|Oktober|November|Desember)\s+\d{4})/i);
+  
+  if (altMatch) {
+    return altMatch[1];
+  }
+
+  return null;
 }
 
 module.exports = { scrapeGoldPrice };

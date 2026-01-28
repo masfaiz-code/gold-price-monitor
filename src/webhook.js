@@ -54,6 +54,7 @@ function formatPayload(priceData, comparison) {
     timestamp: new Date().toISOString(),
     source: priceData.source,
     url: priceData.url,
+    updateTime: priceData.updateTime,
     
     // Info perubahan
     hasChanged: comparison.hasChanged,
@@ -64,8 +65,11 @@ function formatPayload(priceData, comparison) {
     // Detail perubahan
     changes: comparison.changes || [],
     
-    // Data harga terbaru
-    currentPrices: priceData.antam || [],
+    // Harga buyback (per gram)
+    buybackPrice: priceData.buybackPrice,
+    
+    // Data harga Antam per satuan gram
+    antamPrices: priceData.antam || [],
     
     // Summary untuk notifikasi
     summary: generateSummary(priceData, comparison)
@@ -79,29 +83,57 @@ function formatPayload(priceData, comparison) {
  * @returns {string} Summary text
  */
 function generateSummary(priceData, comparison) {
+  const lines = [];
+  const now = new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
+
   if (comparison.isFirstRun) {
-    return `🥇 Gold Price Monitor aktif! Memantau harga dari ${priceData.source}`;
+    lines.push(`🥇 Gold Price Monitor aktif!`);
+    lines.push(`📅 ${now}`);
+    lines.push(`📍 Sumber: ${priceData.source}`);
+    
+    if (priceData.buybackPrice) {
+      lines.push(`💰 Buyback: ${priceData.buybackPrice.priceFormatted}/gram`);
+    }
+    
+    if (priceData.antam && priceData.antam.length > 0) {
+      lines.push(`\n📊 Harga Antam:`);
+      priceData.antam.slice(0, 5).forEach(item => {
+        lines.push(`  • ${item.weight}g: ${item.sellPriceFormatted}`);
+      });
+    }
+    
+    return lines.join('\n');
   }
 
   if (!comparison.hasChanged) {
-    return `✅ Tidak ada perubahan harga emas (${new Date().toLocaleString('id-ID')})`;
+    return `✅ Tidak ada perubahan harga emas (${now})`;
   }
 
-  const lines = [`🔔 Update Harga Emas - ${new Date().toLocaleString('id-ID')}`];
+  lines.push(`🔔 Update Harga Emas Antam`);
+  lines.push(`📅 ${now}`);
   
+  if (priceData.updateTime) {
+    lines.push(`🕐 Update: ${priceData.updateTime}`);
+  }
+  
+  lines.push('');
+
   comparison.changes.forEach(change => {
-    if (change.type === 'PRICE_CHANGE') {
+    if (change.type === 'PRICE_CHANGE' || change.type === 'BUYBACK_CHANGE') {
       const emoji = change.direction === 'UP' ? '📈' : '📉';
       const sign = change.direction === 'UP' ? '+' : '';
       lines.push(
-        `${emoji} ${change.item}: ${change.priceType === 'BUY' ? 'Beli' : 'Jual'} ` +
-        `Rp ${change.newPrice.toLocaleString('id-ID')} ` +
-        `(${sign}${change.differencePercent}%)`
+        `${emoji} ${change.item}: ${change.newPriceFormatted} (${sign}${change.differencePercent}%)`
       );
     } else if (change.type === 'NEW') {
-      lines.push(`🆕 ${change.item}: Beli Rp ${change.newBuyPrice?.toLocaleString('id-ID') || '-'}`);
+      lines.push(`🆕 ${change.item}: ${change.newPriceFormatted}`);
     }
   });
+
+  if (priceData.buybackPrice) {
+    lines.push('');
+    lines.push(`💰 Buyback: ${priceData.buybackPrice.priceFormatted}/gram`);
+  }
 
   return lines.join('\n');
 }
