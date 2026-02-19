@@ -1,11 +1,11 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-02-19T01:46:21.622Z",
-  "updateTime": "18 Februari 2026",
+  "scrapedAt": "2026-02-19T04:15:15.415Z",
+  "updateTime": "19 Februari 2026",
   "buybackPrice": {
-    "price": 2755800,
-    "priceFormatted": "Rp 2.755.800",
+    "price": 2759400,
+    "priceFormatted": "Rp 2.759.400",
     "type": "Buyback per gram"
   },
   "antam": [
@@ -46,13 +46,22 @@
       "pricePerGramFormatted": "Rp 2.864.100/gram"
     },
     {
+      "weight": 9,
+      "weightUnit": "gram",
+      "type": "Antam 9g",
+      "sellPrice": 37140700,
+      "sellPriceFormatted": "Rp 37.140.700",
+      "pricePerGram": 4126744,
+      "pricePerGramFormatted": "Rp 4.126.744/gram"
+    },
+    {
       "weight": 7,
       "weightUnit": "gram",
       "type": "Antam 7g",
-      "sellPrice": 29620000,
-      "sellPriceFormatted": "Rp 29.620.000",
-      "pricePerGram": 4231429,
-      "pricePerGramFormatted": "Rp 4.231.429/gram"
+      "sellPrice": 29660000,
+      "sellPriceFormatted": "Rp 29.660.000",
+      "pricePerGram": 4237143,
+      "pricePerGramFormatted": "Rp 4.237.143/gram"
     },
     {
       "weight": 5,
@@ -85,19 +94,19 @@
       "weight": 2,
       "weightUnit": "gram",
       "type": "Antam 2g",
-      "sellPrice": 7340000,
-      "sellPriceFormatted": "Rp 7.340.000",
-      "pricePerGram": 3670000,
-      "pricePerGramFormatted": "Rp 3.670.000/gram"
+      "sellPrice": 7839000,
+      "sellPriceFormatted": "Rp 7.839.000",
+      "pricePerGram": 3919500,
+      "pricePerGramFormatted": "Rp 3.919.500/gram"
     },
     {
       "weight": 1,
       "weightUnit": "gram",
       "type": "Antam 1g",
-      "sellPrice": 3670000,
-      "sellPriceFormatted": "Rp 3.670.000",
-      "pricePerGram": 3670000,
-      "pricePerGramFormatted": "Rp 3.670.000/gram"
+      "sellPrice": 3920000,
+      "sellPriceFormatted": "Rp 3.920.000",
+      "pricePerGram": 3920000,
+      "pricePerGramFormatted": "Rp 3.920.000/gram"
     },
     {
       "weight": 0.5,
