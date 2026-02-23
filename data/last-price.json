@@ -1,8 +1,8 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-02-22T23:20:08.699Z",
-  "updateTime": "22 Februari 2026",
+  "scrapedAt": "2026-02-23T01:46:03.849Z",
+  "updateTime": "23 Februari 2026",
   "buybackPrice": {
     "price": 2845800,
     "priceFormatted": "Rp 2.845.800",
@@ -28,15 +28,6 @@
       "pricePerGramFormatted": "Rp 2.932.000/gram"
     },
     {
-      "weight": 36.75,
-      "weightUnit": "gram",
-      "type": "Antam 36.75g",
-      "sellPrice": 86754876,
-      "sellPriceFormatted": "Rp 86.754.876",
-      "pricePerGram": 2360677,
-      "pricePerGramFormatted": "Rp 2.360.677/gram"
-    },
-    {
       "weight": 25,
       "weightUnit": "gram",
       "type": "Antam 25g",
@@ -58,10 +49,10 @@
       "weight": 9,
       "weightUnit": "gram",
       "type": "Antam 9g",
-      "sellPrice": 20624910,
-      "sellPriceFormatted": "Rp 20.624.910",
-      "pricePerGram": 2291657,
-      "pricePerGramFormatted": "Rp 2.291.657/gram"
+      "sellPrice": 27832280,
+      "sellPriceFormatted": "Rp 27.832.280",
+      "pricePerGram": 3092476,
+      "pricePerGramFormatted": "Rp 3.092.476/gram"
     },
     {
       "weight": 7,
@@ -103,19 +94,19 @@
       "weight": 2,
       "weightUnit": "gram",
       "type": "Antam 2g",
-      "sellPrice": 7500000,
-      "sellPriceFormatted": "Rp 7.500.000",
-      "pricePerGram": 3750000,
-      "pricePerGramFormatted": "Rp 3.750.000/gram"
+      "sellPrice": 7832280,
+      "sellPriceFormatted": "Rp 7.832.280",
+      "pricePerGram": 3916140,
+      "pricePerGramFormatted": "Rp 3.916.140/gram"
     },
     {
-      "weight": 1.18,
+      "weight": 1.3,
       "weightUnit": "gram",
-      "type": "Antam 1.18g",
-      "sellPrice": 2789234,
-      "sellPriceFormatted": "Rp 2.789.234",
-      "pricePerGram": 2363758,
-      "pricePerGramFormatted": "Rp 2.363.758/gram"
+      "type": "Antam 1.3g",
+      "sellPrice": 2845800,
+      "sellPriceFormatted": "Rp 2.845.800",
+      "pricePerGram": 2189077,
+      "pricePerGramFormatted": "Rp 2.189.077/gram"
     },
     {
       "weight": 1,
