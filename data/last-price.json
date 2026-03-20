@@ -1,11 +1,11 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-03-20T01:43:50.835Z",
+  "scrapedAt": "2026-03-20T04:09:33.551Z",
   "updateTime": "20 Maret 2026",
   "buybackPrice": {
-    "price": 2783700,
-    "priceFormatted": "Rp 2.783.700",
+    "price": 2738700,
+    "priceFormatted": "Rp 2.738.700",
     "type": "Buyback per gram"
   },
   "antam": [
@@ -49,10 +49,10 @@
       "weight": 7,
       "weightUnit": "gram",
       "type": "Antam 7g",
-      "sellPrice": 29930000,
-      "sellPriceFormatted": "Rp 29.930.000",
-      "pricePerGram": 4275714,
-      "pricePerGramFormatted": "Rp 4.275.714/gram"
+      "sellPrice": 29430000,
+      "sellPriceFormatted": "Rp 29.430.000",
+      "pricePerGram": 4204286,
+      "pricePerGramFormatted": "Rp 4.204.286/gram"
     },
     {
       "weight": 5,
@@ -89,15 +89,6 @@
       "sellPriceFormatted": "Rp 7.801.000",
       "pricePerGram": 3900500,
       "pricePerGramFormatted": "Rp 3.900.500/gram"
-    },
-    {
-      "weight": 1.31,
-      "weightUnit": "gram",
-      "type": "Antam 1.31g",
-      "sellPrice": 2783700,
-      "sellPriceFormatted": "Rp 2.783.700",
-      "pricePerGram": 2124962,
-      "pricePerGramFormatted": "Rp 2.124.962/gram"
     },
     {
       "weight": 1,
