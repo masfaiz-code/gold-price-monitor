@@ -1,7 +1,7 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-04-10T15:44:48.861Z",
+  "scrapedAt": "2026-04-10T16:43:46.208Z",
   "updateTime": "10 April 2026",
   "buybackPrice": {
     "price": 2706300,
@@ -9,6 +9,15 @@
     "type": "Buyback per gram"
   },
   "antam": [
+    {
+      "weight": 943.62,
+      "weightUnit": "gram",
+      "type": "Antam 943.62g",
+      "sellPrice": 2617592880,
+      "sellPriceFormatted": "Rp 2.617.592.880",
+      "pricePerGram": 2773990,
+      "pricePerGramFormatted": "Rp 2.773.990/gram"
+    },
     {
       "weight": 100,
       "weightUnit": "gram",
@@ -28,13 +37,13 @@
       "pricePerGramFormatted": "Rp 2.779.000/gram"
     },
     {
-      "weight": 31.68,
+      "weight": 29.35,
       "weightUnit": "gram",
-      "type": "Antam 31.68g",
-      "sellPrice": 81424439,
-      "sellPriceFormatted": "Rp 81.424.439",
-      "pricePerGram": 2570216,
-      "pricePerGramFormatted": "Rp 2.570.216/gram"
+      "type": "Antam 29.35g",
+      "sellPrice": 81416239,
+      "sellPriceFormatted": "Rp 81.416.239",
+      "pricePerGram": 2773977,
+      "pricePerGramFormatted": "Rp 2.773.977/gram"
     },
     {
       "weight": 25,
@@ -100,15 +109,6 @@
       "pricePerGramFormatted": "Rp 3.945.500/gram"
     },
     {
-      "weight": 1.02,
-      "weightUnit": "gram",
-      "type": "Antam 1.02g",
-      "sellPrice": 2617856,
-      "sellPriceFormatted": "Rp 2.617.856",
-      "pricePerGram": 2566525,
-      "pricePerGramFormatted": "Rp 2.566.525/gram"
-    },
-    {
       "weight": 1,
       "weightUnit": "gram",
       "type": "Antam 1g",
@@ -116,6 +116,15 @@
       "sellPriceFormatted": "Rp 3.250.000",
       "pricePerGram": 3250000,
       "pricePerGramFormatted": "Rp 3.250.000/gram"
+    },
+    {
+      "weight": 0.94,
+      "weightUnit": "gram",
+      "type": "Antam 0.94g",
+      "sellPrice": 2617592,
+      "sellPriceFormatted": "Rp 2.617.592",
+      "pricePerGram": 2784672,
+      "pricePerGramFormatted": "Rp 2.784.672/gram"
     },
     {
       "weight": 0.5,
