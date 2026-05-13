@@ -1,14 +1,23 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-05-12T23:55:21.695Z",
+  "scrapedAt": "2026-05-13T02:38:38.157Z",
   "updateTime": "13 Mei 2026",
   "buybackPrice": {
-    "price": 2708100,
-    "priceFormatted": "Rp 2.708.100",
+    "price": 2690100,
+    "priceFormatted": "Rp 2.690.100",
     "type": "Buyback per gram"
   },
   "antam": [
+    {
+      "weight": 862.93,
+      "weightUnit": "gram",
+      "type": "Antam 862.93g",
+      "sellPrice": 2648686110,
+      "sellPriceFormatted": "Rp 2.648.686.110",
+      "pricePerGram": 3069410,
+      "pricePerGramFormatted": "Rp 3.069.410/gram"
+    },
     {
       "weight": 100,
       "weightUnit": "gram",
@@ -26,6 +35,15 @@
       "sellPriceFormatted": "Rp 129.930.000",
       "pricePerGram": 2598600,
       "pricePerGramFormatted": "Rp 2.598.600/gram"
+    },
+    {
+      "weight": 26.84,
+      "weightUnit": "gram",
+      "type": "Antam 26.84g",
+      "sellPrice": 82383346,
+      "sellPriceFormatted": "Rp 82.383.346",
+      "pricePerGram": 3069424,
+      "pricePerGramFormatted": "Rp 3.069.424/gram"
     },
     {
       "weight": 25,
@@ -49,10 +67,10 @@
       "weight": 7,
       "weightUnit": "gram",
       "type": "Antam 7g",
-      "sellPrice": 29090000,
-      "sellPriceFormatted": "Rp 29.090.000",
-      "pricePerGram": 4155714,
-      "pricePerGramFormatted": "Rp 4.155.714/gram"
+      "sellPrice": 28890000,
+      "sellPriceFormatted": "Rp 28.890.000",
+      "pricePerGram": 4127143,
+      "pricePerGramFormatted": "Rp 4.127.143/gram"
     },
     {
       "weight": 5,
@@ -98,6 +116,15 @@
       "sellPriceFormatted": "Rp 3.906.000",
       "pricePerGram": 3906000,
       "pricePerGramFormatted": "Rp 3.906.000/gram"
+    },
+    {
+      "weight": 0.86,
+      "weightUnit": "gram",
+      "type": "Antam 0.86g",
+      "sellPrice": 2648686,
+      "sellPriceFormatted": "Rp 2.648.686",
+      "pricePerGram": 3079867,
+      "pricePerGramFormatted": "Rp 3.079.867/gram"
     },
     {
       "weight": 0.5,
