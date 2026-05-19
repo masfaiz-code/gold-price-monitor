@@ -1,11 +1,11 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-05-19T00:01:18.285Z",
+  "scrapedAt": "2026-05-19T04:55:22.001Z",
   "updateTime": "19 Mei 2026",
   "buybackPrice": {
-    "price": 2622600,
-    "priceFormatted": "Rp 2.622.600",
+    "price": 2645100,
+    "priceFormatted": "Rp 2.645.100",
     "type": "Buyback per gram"
   },
   "antam": [
@@ -13,82 +13,73 @@
       "weight": 100,
       "weightUnit": "gram",
       "type": "Antam 100g",
-      "sellPrice": 250700000,
-      "sellPriceFormatted": "Rp 250.700.000",
-      "pricePerGram": 2507000,
-      "pricePerGramFormatted": "Rp 2.507.000/gram"
+      "sellPrice": 253200000,
+      "sellPriceFormatted": "Rp 253.200.000",
+      "pricePerGram": 2532000,
+      "pricePerGramFormatted": "Rp 2.532.000/gram"
     },
     {
       "weight": 50,
       "weightUnit": "gram",
       "type": "Antam 50g",
-      "sellPrice": 125467000,
-      "sellPriceFormatted": "Rp 125.467.000",
-      "pricePerGram": 2509340,
-      "pricePerGramFormatted": "Rp 2.509.340/gram"
+      "sellPrice": 126717000,
+      "sellPriceFormatted": "Rp 126.717.000",
+      "pricePerGram": 2534340,
+      "pricePerGramFormatted": "Rp 2.534.340/gram"
     },
     {
       "weight": 25,
       "weightUnit": "gram",
       "type": "Antam 25g",
-      "sellPrice": 62976000,
-      "sellPriceFormatted": "Rp 62.976.000",
-      "pricePerGram": 2519040,
-      "pricePerGramFormatted": "Rp 2.519.040/gram"
+      "sellPrice": 63601000,
+      "sellPriceFormatted": "Rp 63.601.000",
+      "pricePerGram": 2544040,
+      "pricePerGramFormatted": "Rp 2.544.040/gram"
     },
     {
       "weight": 10,
       "weightUnit": "gram",
       "type": "Antam 10g",
-      "sellPrice": 25247000,
-      "sellPriceFormatted": "Rp 25.247.000",
-      "pricePerGram": 2524700,
-      "pricePerGramFormatted": "Rp 2.524.700/gram"
-    },
-    {
-      "weight": 9,
-      "weightUnit": "gram",
-      "type": "Antam 9g",
-      "sellPrice": 40273600,
-      "sellPriceFormatted": "Rp 40.273.600",
-      "pricePerGram": 4474844,
-      "pricePerGramFormatted": "Rp 4.474.844/gram"
+      "sellPrice": 25497000,
+      "sellPriceFormatted": "Rp 25.497.000",
+      "pricePerGram": 2549700,
+      "pricePerGramFormatted": "Rp 2.549.700/gram"
     },
     {
       "weight": 7,
       "weightUnit": "gram",
       "type": "Antam 7g",
-      "sellPrice": 28140000,
-      "sellPriceFormatted": "Rp 28.140.000",
-      "pricePerGram": 4020000,
-      "pricePerGramFormatted": "Rp 4.020.000/gram"
+      "sellPrice": 28390000,
+      "sellPriceFormatted": "Rp 28.390.000",
+      "pricePerGram": 4055714,
+      "pricePerGramFormatted": "Rp 4.055.714/gram"
     },
     {
       "weight": 5,
       "weightUnit": "gram",
       "type": "Antam 5g",
-      "sellPrice": 12727000,
-      "sellPriceFormatted": "Rp 12.727.000",
-      "pricePerGram": 2545400,
-      "pricePerGramFormatted": "Rp 2.545.400/gram"
+      "sellPrice": 12852000,
+      "sellPriceFormatted": "Rp 12.852.000",
+      "pricePerGram": 2570400,
+      "pricePerGramFormatted": "Rp 2.570.400/gram"
     },
     {
       "weight": 4,
       "weightUnit": "gram",
       "type": "Antam 4g",
-      "sellPrice": 10301000,
-      "sellPriceFormatted": "Rp 10.301.000",
-      "pricePerGram": 2575250,
-      "pricePerGramFormatted": "Rp 2.575.250/gram"
+      "sellPrice": 10401000,
+      "sellPriceFormatted": "Rp 10.401.000",
+      "pricePerGram": 2600250,
+      "pricePerGramFormatted": "Rp 2.600.250/gram"
     },
     {
       "weight": 3,
       "weightUnit": "gram",
       "type": "Antam 3g",
-      "sellPrice": 7756000,
-      "sellPriceFormatted": "Rp 7.756.000",
-      "pricePerGram": 2585333,
-      "pricePerGramFormatted": "Rp 2.585.333/gram"
+      "sellPrice": 7831000,
+      "sellPriceFormatted": "Rp 7.831.000",
+      "pricePerGram": 2610333,
+      "pricePerGramFormatted": "Rp 2.610.333/gram"
     },
     {
       "weight": 2,
@@ -112,28 +103,28 @@
       "weight": 0.5,
       "weightUnit": "gram",
       "type": "Antam 0.5g",
-      "sellPrice": 1443000,
-      "sellPriceFormatted": "Rp 1.443.000",
-      "pricePerGram": 2886000,
-      "pricePerGramFormatted": "Rp 2.886.000/gram"
+      "sellPrice": 1455500,
+      "sellPriceFormatted": "Rp 1.455.500",
+      "pricePerGram": 2911000,
+      "pricePerGramFormatted": "Rp 2.911.000/gram"
     },
     {
       "weight": 0.25,
       "weightUnit": "gram",
       "type": "Antam 0.25g",
-      "sellPrice": 809000,
-      "sellPriceFormatted": "Rp 809.000",
-      "pricePerGram": 3236000,
-      "pricePerGramFormatted": "Rp 3.236.000/gram"
+      "sellPrice": 815200,
+      "sellPriceFormatted": "Rp 815.200",
+      "pricePerGram": 3260800,
+      "pricePerGramFormatted": "Rp 3.260.800/gram"
     },
     {
       "weight": 0.1,
       "weightUnit": "gram",
       "type": "Antam 0.1g",
-      "sellPrice": 357000,
-      "sellPriceFormatted": "Rp 357.000",
-      "pricePerGram": 3570000,
-      "pricePerGramFormatted": "Rp 3.570.000/gram"
+      "sellPrice": 359500,
+      "sellPriceFormatted": "Rp 359.500",
+      "pricePerGram": 3595000,
+      "pricePerGramFormatted": "Rp 3.595.000/gram"
     }
   ]
 }
