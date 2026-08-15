@@ -1,7 +1,7 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-08-15T09:19:20.110Z",
+  "scrapedAt": "2026-08-15T10:15:49.615Z",
   "updateTime": "11 Agustus 2026",
   "buybackPrice": {
     "price": 2574000,
@@ -10,13 +10,13 @@
   },
   "antam": [
     {
-      "weight": 826.27,
+      "weight": 648.48,
       "weightUnit": "gram",
-      "type": "Antam 826.27g",
+      "type": "Antam 648.48g",
       "sellPrice": 2508618610,
       "sellPriceFormatted": "Rp 2.508.618.610",
-      "pricePerGram": 3036076,
-      "pricePerGramFormatted": "Rp 3.036.076/gram"
+      "pricePerGram": 3868459,
+      "pricePerGramFormatted": "Rp 3.868.459/gram"
     },
     {
       "weight": 100,
@@ -37,15 +37,6 @@
       "pricePerGramFormatted": "Rp 2.429.740/gram"
     },
     {
-      "weight": 25.7,
-      "weightUnit": "gram",
-      "type": "Antam 25.7g",
-      "sellPrice": 78026760,
-      "sellPriceFormatted": "Rp 78.026.760",
-      "pricePerGram": 3036061,
-      "pricePerGramFormatted": "Rp 3.036.061/gram"
-    },
-    {
       "weight": 25,
       "weightUnit": "gram",
       "type": "Antam 25g",
@@ -53,6 +44,15 @@
       "sellPriceFormatted": "Rp 60.962.000",
       "pricePerGram": 2438480,
       "pricePerGramFormatted": "Rp 2.438.480/gram"
+    },
+    {
+      "weight": 20.17,
+      "weightUnit": "gram",
+      "type": "Antam 20.17g",
+      "sellPrice": 78026760,
+      "sellPriceFormatted": "Rp 78.026.760",
+      "pricePerGram": 3868456,
+      "pricePerGramFormatted": "Rp 3.868.456/gram"
     },
     {
       "weight": 10,
@@ -118,13 +118,13 @@
       "pricePerGramFormatted": "Rp 3.325.000/gram"
     },
     {
-      "weight": 0.83,
+      "weight": 0.65,
       "weightUnit": "gram",
-      "type": "Antam 0.83g",
+      "type": "Antam 0.65g",
       "sellPrice": 2508618,
       "sellPriceFormatted": "Rp 2.508.618",
-      "pricePerGram": 3022431,
-      "pricePerGramFormatted": "Rp 3.022.431/gram"
+      "pricePerGram": 3859412,
+      "pricePerGramFormatted": "Rp 3.859.412/gram"
     },
     {
       "weight": 0.5,
