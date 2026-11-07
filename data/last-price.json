@@ -1,7 +1,7 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-11-06T21:12:46.244Z",
+  "scrapedAt": "2026-11-07T01:30:18.134Z",
   "updateTime": "23 Oktober 2026",
   "buybackPrice": {
     "price": 2421000,
@@ -10,22 +10,31 @@
   },
   "antam": [
     {
-      "weight": 574.53,
+      "weight": 908.26,
       "weightUnit": "gram",
-      "type": "Antam 574.53g",
-      "sellPrice": 2367428730,
-      "sellPriceFormatted": "Rp 2.367.428.730",
-      "pricePerGram": 4120636,
-      "pricePerGramFormatted": "Rp 4.120.636/gram"
+      "type": "Antam 908.26g",
+      "sellPrice": 2367216170,
+      "sellPriceFormatted": "Rp 2.367.216.170",
+      "pricePerGram": 2606320,
+      "pricePerGramFormatted": "Rp 2.606.320/gram"
     },
     {
-      "weight": 17.87,
+      "weight": 28.25,
       "weightUnit": "gram",
-      "type": "Antam 17.87g",
-      "sellPrice": 73635264,
-      "sellPriceFormatted": "Rp 73.635.264",
-      "pricePerGram": 4120608,
-      "pricePerGramFormatted": "Rp 4.120.608/gram"
+      "type": "Antam 28.25g",
+      "sellPrice": 73628653,
+      "sellPriceFormatted": "Rp 73.628.653",
+      "pricePerGram": 2606324,
+      "pricePerGramFormatted": "Rp 2.606.324/gram"
+    },
+    {
+      "weight": 25,
+      "weightUnit": "gram",
+      "type": "Antam 25g",
+      "sellPrice": 73628653,
+      "sellPriceFormatted": "Rp 73.628.653",
+      "pricePerGram": 2945146,
+      "pricePerGramFormatted": "Rp 2.945.146/gram"
     },
     {
       "weight": 7,
@@ -46,13 +55,13 @@
       "pricePerGramFormatted": "Rp 2.950.000/gram"
     },
     {
-      "weight": 0.57,
+      "weight": 0.91,
       "weightUnit": "gram",
-      "type": "Antam 0.57g",
-      "sellPrice": 2367428,
-      "sellPriceFormatted": "Rp 2.367.428",
-      "pricePerGram": 4153382,
-      "pricePerGramFormatted": "Rp 4.153.382/gram"
+      "type": "Antam 0.91g",
+      "sellPrice": 2367216,
+      "sellPriceFormatted": "Rp 2.367.216",
+      "pricePerGram": 2601336,
+      "pricePerGramFormatted": "Rp 2.601.336/gram"
     }
   ]
 }
