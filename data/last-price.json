@@ -1,7 +1,7 @@
 {
   "source": "harga-emas.org",
   "url": "https://harga-emas.org",
-  "scrapedAt": "2026-11-23T10:08:46.232Z",
+  "scrapedAt": "2026-11-23T22:23:27.823Z",
   "updateTime": "23 Oktober 2026",
   "buybackPrice": {
     "price": 2421000,
@@ -9,6 +9,15 @@
     "type": "Buyback per gram"
   },
   "antam": [
+    {
+      "weight": 9,
+      "weightUnit": "gram",
+      "type": "Antam 9g",
+      "sellPrice": 43868690,
+      "sellPriceFormatted": "Rp 43.868.690",
+      "pricePerGram": 4874299,
+      "pricePerGramFormatted": "Rp 4.874.299/gram"
+    },
     {
       "weight": 7,
       "weightUnit": "gram",
